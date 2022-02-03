@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>Javascript</title>
+
+</head>
+<style>
+    body {
+        background-color: #5c5470;
+    }
+
+    .people {
+        font-size: 80px;
+        text-align: center;
+        color: white;
+        margin-top: 10%;
+    }
+
+    .increment-btn {
+        background-color: #dbd3e8;
+        width: 55%;
+        height: 8%;
+        font-size: 50px;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+
+    .zero {
+        font-size: 80px;
+        color: white;
+    }
+
+    .save-btn {
+        background-color: #2a2438;
+        width: 55%;
+        height: 8%;
+        font-size: 50px;
+        margin-top: 3%;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .previous {
+        font-size: 50px;
+        color: white;
+    }
+
+    .reset {
+        background-color: red;
+        width: 55%;
+        height: 8%;
+        font-size: 50px;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        color: white
+    }
+</style>
+
+<body>
+    <h1 class="people">People Entered:</h1>
+    <center class="zero">
+        <h2 id="count-el">0</h2>
+    </center>
+
+    <center><button class="increment-btn" onclick="increment()">Increment</button>
+        <center><button class="save-btn" onclick="save()">Save</button>
+            <p class="previous" id="save-el">previous Entries: </p>
+
+            <center><button class="reset" onclick="reset()">Reset</button>
+
+                <p id="save-el"></p>
+
+
+                <script>
+                    let resetEl = document.getElementById("save-el")
+
+                    let saveEl = document.getElementById("save-el")
+
+                    let CountEl = document.getElementById("count-el")
+
+                    let Count = 0
+
+                    function increment() {
+                        Count += 1
+                        CountEl.textContent = Count
+                    }
+                    function save() {
+                        let CountStr = Count + " _ "
+                        if(saveEl.textContent == "Nothing was Saved!"){
+                            saveEl.textContent = "previous Entries: "
+                        }
+                        saveEl.textContent += CountStr
+                        CountEl.textContent = 0
+                        Count = 0
+                    }
+                    function reset() {
+                        let rst = " "
+                        let Empty = "Nothing was Saved!"
+                        resetEl.textContent = rst
+                        saveEl.textContent = Empty
+                    }
+                </script>
+
+</html>
